@@ -16,7 +16,7 @@ const Newsletter = () => {
           <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900">Free Communication</h2>
         </div>
         <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-          We share the goals of <a className="underline mr-1" href="https://connectfamiliesnow.com/">#ConnectFamiliesNow,</a> a collective of national, state, and local organizations fighting to connect families with incarcerated loved ones by making communication free.
+          We share the goals of <a className="underline mr-1" href="https://connectfamiliesnow.com/">ConnectFamiliesNow,</a> a collective of national, state, and local organizations fighting to connect families with incarcerated loved ones by making communication free.
           </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
           <div className="rounded-md shadow">
