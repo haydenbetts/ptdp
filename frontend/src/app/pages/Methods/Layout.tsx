@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line prettier/prettier
 import React from 'react';
 
 const Link = ({ link, text }) => {
   return (
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <a
       className="cursor-pointer underline"
       onClick={e => {
@@ -26,12 +29,12 @@ export const Layout = () => {
                 Methodology
               </h2>
               <div className="text-sm text-gray-500">
-                All our data, and the code we use to collect it is open source. You
-                can download our latest data{' '}
+                All our data, and the code we use to collect it is open source.
+                You can download our latest data{' '}
                 <Link link={'https://github.com/PTDP/data'} text="here" />, and
                 view the code used to collect and display it{' '}
                 <Link link={'https://github.com/PTDP/ptdp'} text="here" />. Our
-                methology borrows heavily from that used by Pete Wagner and
+                methodology borrows heavily from that used by Pete Wagner and
                 Alexi Jones of the Prison Policy Institute in{' '}
                 <Link
                   link={
@@ -43,11 +46,11 @@ export const Layout = () => {
               <div className="text-sm text-gray-500">
                 <span>
                   <div>
-                    Our dataset includes prison telecom rate data
-                    scraped from the online rate calculators of the leading
-                    telecom service providers: ICS, Securus, and GTL. Before
-                    displaying this data on PTDP's website, we clean, normalize,
-                    geotag, and then join it with{' '}
+                    Our dataset includes prison telecom rate data scraped from
+                    the online rate calculators of the leading telecom service
+                    providers: ICS, Securus, and GTL. Before displaying this
+                    data on PTDP's website, we clean, normalize, geotag, and
+                    then join it with{' '}
                     <Link
                       link={
                         'https://hifld-geoplatform.opendata.arcgis.com/datasets/prison-boundaries/data?geometry=-136.415%2C26.672%2C116.710%2C66.198'
@@ -61,14 +64,14 @@ export const Layout = () => {
                     we aim to collect the following:
                     <div className="mt-2">
                       - The price of calls from a phone number that originates
-                      <i> inside</i> of a facility's state for every
-                      phone service (e.g. collect calling, prepaid calling, etc)
-                      that a facility offers.
+                      <i> inside</i> of a facility's state for every phone
+                      service (e.g. collect calling, prepaid calling, etc) that
+                      a facility offers.
                     </div>
                     <div className="mt-2">
                       - The price of calls from a phone number that originates
-                      <i> outside</i> of a facility's state for every
-                      phone service that a facility offers.
+                      <i> outside</i> of a facility's state for every phone
+                      service that a facility offers.
                     </div>
                     <div className="mt-2">
                       For in-state calls, we use the governor's number as the
@@ -79,7 +82,11 @@ export const Layout = () => {
                       governor's number to check out-of-state rates in Alabama.
                     </div>
                     <div className="mt-2">
-                    Note: Because our data is scraped from private entities, it is updated and ammended on a schedule we do not control. Furthur, our data represents telecom rates as those entities report them publicly, rather than what rates are in practice.
+                      Note: Because our data is scraped from private entities,
+                      it is updated and amended on a schedule we do not
+                      control. Further, our data represents telecom rates as
+                      those entities report them publicly, rather than what
+                      rates are in practice.
                     </div>
                   </div>
 
@@ -88,19 +95,24 @@ export const Layout = () => {
                     The first step in pulling rate data from telecom providers
                     is to run automated web scrapers against the publicly
                     available rate calculators provided by each of the telecom
-                    companies we include in our data set
+                    companies we include in our data set.
                   </div>
                   <div className="mt-2">
                     You can view the URLs of these rate calculators in the{' '}
-                    <Link link={'https://github.com/PTDP/data/blob/main/data/rates.md'} text="CSV" />,
-                    containing our latest data, and the source code of our web
+                    <Link
+                      link={
+                        'https://github.com/PTDP/data/blob/main/data/rates.md'
+                      }
+                      text="CSV"
+                    />
+                    containing our latest data and the source code of our web
                     scrapers on github.
                   </div>
                   <div className="mt-2 font-bold">Automated Cleaning</div>
                   <div className="mt-2">
                     The raw scraped data that we save is full of incomplete
-                    records. For example, we often encounter facilties that have
-                    NULL rates reported. We discard these these rates at this
+                    records. For example, we often encounter facilities that have
+                    NULL rates reported. We discard these rates at this
                     point.
                   </div>
                   <div className="mt-2 font-bold">Normalizing</div>
@@ -108,9 +120,10 @@ export const Layout = () => {
                     In order to build a unified schema from disparate origin
                     sources, we need to transform the names of fields we
                     collect, and, in some cases, do some math to normalize
-                    rates. In our database, a rate is calculated by adding the price of the first
-                    minute, the price of an additional minute, and the price of any associated taxes.
-                    You can find the full transformation logic{' '}
+                    rates. In our database, a rate is calculated by adding the
+                    price of the first minute, the price of an additional
+                    minute, and the price of any associated taxes. You can find
+                    the full transformation logic{' '}
                     <Link
                       link="https://github.com/PTDP/ptdp/tree/master/backend/src/api/controllers/etl/loaders"
                       text="here"
@@ -126,9 +139,9 @@ export const Layout = () => {
                       link="https://developers.google.com/maps/documentation/places/web-service/overview"
                       text="Google Places API"
                     ></Link>
-                    , the programmatic equivalent of a Google Maps search, in order to guess
-                    the exact location of every facility reported by the telecom
-                    rate calculators given its name + state.
+                    , the programmatic equivalent of a Google Maps search, in
+                    order to guess the exact location of every facility reported
+                    by the telecom rate calculators given its name + state.
                   </div>
                   <div className="mt-2 font-bold">
                     Joining with external data
@@ -147,26 +160,27 @@ export const Layout = () => {
                     Compare for example, "FSL LA TUNA (EL PASO)", Homeland
                     Security's canonical name for a Federal facility in El Paso
                     with GTL's name for the same facility "Federal Bureau of
-                    Prisons TX-La Tuna FSL (El Paso)." 
-                    
-                    </div>
-                    <div className="mt-2">
-                    In order to perform the
-                    data join, we do a combination of spatial joins (checking
-                    whether the Google Places reported latitude and longitude
-                    is within .5 miles of the external data source's reported latitude
-                    and longitude), and fuzzy string matching (
+                    Prisons TX-La Tuna FSL (El Paso)."
+                  </div>
+                  <div className="mt-2">
+                    In order to perform the data join, we do a combination of
+                    spatial joins (checking whether the Google Places reported
+                    latitude and longitude is within .5 miles of the external
+                    data source's reported latitude and longitude), and fuzzy
+                    string matching (
                     <Link
                       text="checking whether the token set ratio is > 75"
                       link="https://github.com/seatgeek/fuzzywuzzy/tree/9a4bc22c7483198fcb96afacc42f5f700fb803ed#token-set-ratio"
                     />
                     ).{' '}
                     <b>
-                      By default, we hide any rate data that we are unable to confidently
-                      tie to a canonical facility in the Department of Homeland Security's Prison Boundary Dataset. We
-                      only reintroduce such rates after manual review.
+                      By default, we hide any rate data that we are unable to
+                      confidently tie to a canonical facility in the Department
+                      of Homeland Security's Prison Boundary Dataset. We only
+                      reintroduce such rates after manual review.
                     </b>{' '}
-                    You can view the details of our approach to reconciling facilities{' '}
+                    You can view the details of our approach to reconciling
+                    facilities{' '}
                     <Link
                       link="https://github.com/PTDP/ptdp/blob/master/utils/notebooks/reconcile_facilities.ipynb"
                       text="Jupyter notebook."
@@ -174,8 +188,11 @@ export const Layout = () => {
                   </div>
                   <div className="mt-2 font-bold">Manual Correction</div>
                   <div className="mt-2">
-                    The above approach to joining vendor reported data to external data is by its nature imprecise. We rely on volunteers
-                    to audit our final results, and provide manual corrections to fields to compensate for the imprecision of the automated approach.
+                    The above approach to joining vendor reported data to
+                    external data is by its nature imprecise. We rely on
+                    volunteers to audit our final results, and provide manual
+                    corrections to fields to compensate for the imprecision of
+                    the automated approach.
                   </div>
                 </span>
                 <span style={{ position: 'relative' }}></span>
